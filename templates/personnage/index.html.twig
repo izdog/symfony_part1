@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RPG - Liste des personnages{% endblock %}
+
+{% block superTitre %}Liste des personnages{% endblock %}
+
+{% block body %}
+   <div class="container">
+        {% for perso in personnages %}
+            <div class="row mb-4">
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/personnages/' ~ perso.nom|capitalize ~ '.png') }}" alt="">
+                </div>
+                <div class="col">
+                    <h4>Les informations de <a href="{{ path('display_perso', {'nom' : perso.nom}) }}">{{ perso.nom|capitalize }}</a></h4>
+                    <div>Job : {{ perso.job|capitalize }}</div>
+                    <div>Sexe : {{ perso.sexe ? 'Femme' : 'Homme'}}</div>
+                    <ul>
+                        <li>Vie : {{ perso.stats.vie }}</li>
+                        <li>Force : {{ perso.stats.force }}</li>
+                        <li>Agilité : {{ perso.stats.agilite }}</li>
+                        <li>Intelligence : {{ perso.stats.intelligence }}</li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+   </div>
+{% endblock %}
