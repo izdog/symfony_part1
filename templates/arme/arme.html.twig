@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RPG - Liste des armes{% endblock %}
+
+{% block superTitre %}Liste des armes{% endblock %}
+
+{% block body %}
+   <div class="container">
+        <div class="row mb-4">
+            <div class="col-2">
+                <img class="w-100" src="{{ asset('assets/images/armes/' ~ arme.nom|replace({'é' :'e'}) ~ '.png') }}" alt="">
+            </div>
+            <div class="col">
+                <h4>Les informations de {{ arme.nom|capitalize }}</h4>
+                <div>Description : {{ arme.description }}</div>
+                <div>Dégats : {{ arme.degats }}</div>
+            </div>
+        </div>
+   </div>
+{% endblock %}
